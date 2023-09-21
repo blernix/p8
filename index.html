@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="style.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script defer src="script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/46b7ceee20.js" crossorigin="anonymous"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,900;1,600&display=swap');
+    </style>
+    <title>Portfolio</title>
+</head>
+<body>
+ 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">A propos</a></li>
+                <li><a href="mailto:killian.lecrut@gmail.com">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  
+    <div  class="kikiweb">
+  
+   
+      <div class="K">K</div>
+      <div class="i">i</div>
+      <div class="k">k</div>
+      <div class="i">i</div>
+      <div class="W">W</div>
+      <div class="e">e</div>
+      <div class="b">b</div>
+        
+      
+  </div>
+
+    <section id="about">
+        <h2>A propos</h2>
+        <section class="presentation">
+            <div class="container_pres">
+                <div class="pres_section">
+                    <h3 class="title">Passion</h3>
+                    <p class="paragraphe">Après avoir étudié la psychologie, j'ai décidé de suivre mon rêve en empruntant le chemin de la création digitale.</p>
+                </div>
+                <div class="pres_section">
+                    <h3 class="title">Créativité</h3>
+                    <p class="paragraphe">Passionné par la création de sites web, j'aime créer des sites qui vous ressemblent.</p>
+                </div>
+                <div class="pres_section">
+                    <h3 class="title">Curiosité</h3>
+                    <p class="paragraphe">Je suis curieux de nature, j'aime apprendre de nouvelles choses et rencontrer de nouvelles personnes.</p>
+                </div>
+                <div class="pres_section">
+                    <h3 class="title">Adaptabilité</h3>
+                    <p class="paragraphe">Je suis capable de m'adapter à différentes situations, mais surtout aux différentes personnes pour qui je travaille.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="projects">
+      <h2>Mes Projets</h2>
+      <div class="container_projects">
+        <div class="project-card" id="kasa" data-name="Kasa" data-description="Création frontend d'un site de location d'appartements. Codé avec React." data-images="kasa/accueil.png, kasa/appart.png, kasa/propos.png">
+            <h3>Kasa</h3>
+            <p>Frontend, cliquez pour plus d'infos.</p>
+        </div>
+        <div class="project-card" id="grimoir" data-name="Mon vieux grimoir" data-description="Coder le back-end d'une application web de notation de livre. Utilisation de node.js express et mongoDB. Intégration des CRUD, gérer un shema de données de manière sécurisée." data-images="grimoir/connexion.png, grimoir/creation.png, grimoir/ajout.png, grimoir/modif.png">
+            <h3>Mon Vieux Grimoir</h3>
+            <p>Backend, cliquez pour plus d'infos.</p>
+        </div>
+        <div class="project-card" id="sophie" data-name="Sophie Bluel" data-description="Création de code frontend relié à une API REST. Création d'un espace administrateur." data-images="sophie/public.png, sophie/ajout.png, sophie/appercu.png, sophie/suppression.png">
+          <h3>Portfolio Sophie bluel</h3>
+          <p>Frontend, cliquez pour plus d'infos.</p>
+      </div>
+      <div class="project-card" id="nina" data-name="Nina Carducci" data-description="Optimisation d'un site de photographe avec audit lighthouse et WAVE." data-images="opti/intro.png, opti/2.png, opti/3.png, opti/4.png, opti/5.png, opti/6.png, opti/7.png">
+        <h3>Nina Carducci</h3>
+        <p>Optimisation de site web, cliquez pour plus d'infos.</p>
+    </div>
+      </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nom du Projet</h2>
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                  
+              </div>
+              <!-- Ajoutez les flèches de navigation du carrousel si nécessaire -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+          </div>
+            <p>Description du projet.</p>
+        </div>
+    </div>
+
+  
+
+  
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            
+          </div>
+          <div class="footer-links">
+            <ul class="footer-menu">
+              
+              <li><a href="#">A propos</a></li>
+              
+              <li><a href="mailto:killian.lecrut@gmail.com">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <ul class="social-icons">
+              <li><a href="https://www.linkedin.com/in/killian-lecrut-a80336176/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="mailto:killian.lecrut@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+              <li><a href="https://github.com/blernix" target="_blank"><i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 KikiWeb. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  
+
+    <script src="script.js"></script>
+</body>
+</html>

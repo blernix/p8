@@ -1,0 +1,421 @@
+/* Style général */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #60a3bc;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #0a3d62;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+.kikiweb {
+  --couleur: 0, 0, 0;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-size: calc(100vw / 10);
+  /* position: relative; */
+
+  margin-top: 0;
+  margin-bottom: 50px;
+  width: 100%;
+ position: fixed; /* La classe kikiweb reste fixe lors du défilement */
+ top: calc(150px + 2rem); ; /* Position verticale au centre */
+  left: 50%; /* Position horizontale au centre */
+  transform: translate(-50%, -50%); /* Centrage précis */
+   /* La classe kikiweb est en arrière-plan */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+
+  text-shadow: 
+    0 1px 0 #ccc, 
+    0 2px 0 #acacac,
+    0 3px 0 #a0a0a0,
+    0 4px 0 #9b9a9a,
+    0 5px 0 #888787,
+    0 6px 1px rgba(var(--couleur),.1),
+    0 0 5px rgba(var(--couleur),.1),
+    0 1px 3px rgba(var(--couleur),.3),
+    0 3px 5px rgba(var(--couleur),.3),
+    0 5px 10px rgba(var(--couleur),.25),
+    0 10px 10px rgba(var(--couleur),.2),
+    0 20px 20px rgba(var(--couleur),.15);
+}
+
+
+@keyframes bounceUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+}
+
+.kikiweb > div:nth-child(odd) {
+  animation: bounceUpDown 2s ease infinite alternate;
+  display: inline-block;
+  margin: 0 0.2rem;
+}
+
+.kikiweb > div:nth-child(even) {
+  animation: bounceUpDown 2s ease infinite alternate-reverse;
+  display: inline-block;
+  margin: 0 0.2rem;
+}
+
+.kikiweb.in-background {
+  opacity: 0.1;
+  z-index: 1;
+}
+.scrolling-container {
+  position: relative; /* Position relative pour que les éléments internes se positionnent correctement par rapport à ce conteneur */
+  z-index: 1; /* Les éléments du conteneur défilent au-dessus de kikiweb */
+}
+
+/* Style de la section "A propos" */
+#about {
+  background-color: #60a3bc;
+  
+  color: #fff;
+  text-align: center;
+  margin-top: 200px;
+
+}
+
+/* Style des sections individuelles */
+.pres_section {
+  background-color: #82ccdd;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  color: white;
+  
+}
+
+/* Animation pour faire apparaître les sections au scroll */
+.pres_section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+/* Style de la section "Mes Projets" */
+#projects {
+  background-color: #60a3bc;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Style du conteneur des cartes de projet */
+.container_projects {
+  display: flex; /* Utilisation de flexbox pour aligner les cartes côte à côte */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style des cartes de projet */
+.project-card {
+  background-color: #3c6382;
+  color: #fff;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  flex: 0 0 calc(30% - 40px); /* Réduire la largeur pour qu'elles tiennent côte à côte, avec un espacement entre elles */
+  min-width: 200px; /* Définir une largeur minimale pour éviter qu'elles ne deviennent trop étroites */
+  box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur */
+  height: 300px; /* Définir la hauteur souhaitée */
+  text-align: left; /* Aligner le texte à gauche */
+  margin-bottom: 20px; /* Espacement entre les cartes verticalement */
+}
+
+
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+/* Style de la modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%; /* Position verticale au milieu de l'écran */
+  left: 50%; /* Position horizontale au milieu de l'écran */
+  transform: translate(-50%, -50%); /* Centrer précisément la modal */
+  width: 50%; /* Largeur souhaitée pour une forme carrée */
+  height: 50%; /* Hauteur souhaitée pour une forme carrée */
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center; /* Centrer le texte */
+  width: 100%; /* Largeur de la modal */
+  height: 100%; /* Hauteur de la modal */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* Style pour redimensionner les images dans le carrousel */
+.swiper-slide img {
+  max-width: 100%; /* Redimensionne les images pour qu'elles ne dépassent pas la largeur de leur conteneur */
+  max-height: 100% ; /* Redimensionne les images pour qu'elles ne dépassent pas la hauteur de leur conteneur */
+ padding-right: 20px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.swiper-container {
+  width: 80%; /* Réduisez la largeur du carrousel pour qu'il ne prenne pas trop de place */
+  margin: 0 auto; /* Centrez le carrousel horizontalement */
+  overflow: hidden;
+}
+
+
+
+
+footer {
+  font-size: 18px;
+  width: 100%;
+  background-color: #0a3d62;
+  color: #fff;
+  padding: 30px 0;
+  margin-bottom: 0;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-menu li:last-child {
+  margin-right: 0;
+}
+
+.footer-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons li:last-child {
+  margin-right: 0;
+}
+
+.social-icons a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20px;
+  }
+  .footer-menu {
+    text-align: left;
+  }
+  .footer-menu li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+
+/* Style général pour les petits écrans */
+@media (max-width: 768px) {
+  /* Réduisez la taille du texte dans le corps du site */
+  body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+    .kikiweb {
+      font-size: 20vw; /* Ajustez la taille de la police pour les petits écrans */
+      margin-top: 50px; /* Augmentez la marge supérieure pour éviter le chevauchement du contenu */
+      text-align: center;
+    }
+
+  
+  
+  /* Ajustez la largeur de la modal pour qu'elle occupe la largeur de l'écran */
+  .modal {
+    width: 50%;
+    height: 50%;
+  }
+
+  /* Réduisez la taille du texte dans la modal */
+  .modal-content {
+    font-size: 14px;
+  }
+
+  /* Réduisez la taille des cartes de projet pour qu'elles s'adaptent à l'écran */
+  .project-card {
+    flex: 0 0 calc(50% - 20px); /* Occupe 50% de la largeur avec un espace entre les cartes */
+    min-width: auto; /* Annule la largeur minimale pour s'adapter à l'écran */
+    height: auto; /* Ajustez la hauteur automatiquement en fonction du contenu */
+    margin: 10px; /* Ajoutez une petite marge entre les cartes */
+  }
+  .swiper-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  
+  .swiper-container {
+    width: 80%; /* Réduisez la largeur du carrousel pour qu'il ne prenne pas trop de place */
+    margin: 0 auto; /* Centrez le carrousel horizontalement */
+    overflow: hidden;
+  }
+  
+
+  /* Style spécifique pour les téléphones */
+  @media (max-width: 480px) {
+    /* Réduisez davantage la taille du texte dans le corps du site */
+    body {
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Ajustez la largeur de la modal pour qu'elle occupe toute la largeur de l'écran */
+    .modal {
+      width: 50%;
+      height: 50%;
+    }
+
+    /* Réduisez davantage la taille du texte dans la modal */
+    .modal-content {
+      font-size: 12px;
+    }
+
+    /* Réduisez davantage la taille des cartes de projet pour s'adapter à l'écran */
+    .project-card {
+      flex: 0 0 calc(100% - 20px); /* Occupe 100% de la largeur avec un espace entre les cartes */
+      min-width: auto; /* Annule la largeur minimale pour s'adapter à l'écran */
+      height: auto; /* Ajustez la hauteur automatiquement en fonction du contenu */
+      margin: 10px; /* Ajoutez une petite marge entre les cartes */
+    }
+    .swiper-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+    
+    .swiper-container {
+      width: 80%; /* Réduisez la largeur du carrousel pour qu'il ne prenne pas trop de place */
+      margin: 0 auto; /* Centrez le carrousel horizontalement */
+      overflow: hidden;
+    }
+    #projects {
+      background-color: #60a3bc;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      width: 100%;
+    }
+    
+
+
+
+  }
+}
