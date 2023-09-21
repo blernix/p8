@@ -37,7 +37,7 @@ nav a {
   justify-content: center;
   font-family: 'Poppins', sans-serif;
   color: white;
-  font-size: calc(100vw / 10);
+  font-size: calc(90vw / 10);
   /* position: relative; */
 
   margin-top: 0;
@@ -240,8 +240,8 @@ footer {
 
 .container {
   width: 100%;
-  margin: 0 auto;
-  padding: 0 50px;
+  
+  
 }
 
 .footer-content {
@@ -300,25 +300,13 @@ footer {
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: repeat(1, 1fr);
-    row-gap: 20px;
-  }
-  .footer-menu {
-    text-align: left;
-  }
-  .footer-menu li {
-    display: block;
-    margin-bottom: 10px;
-  }
-}
 
 
 /* Style général pour les petits écrans */
 @media (max-width: 768px) {
   /* Réduisez la taille du texte dans le corps du site */
   body {
+    top: calc(75px + 2rem);
     font-size: 16px;
     margin: 0;
     padding: 0;
@@ -326,9 +314,10 @@ footer {
   }
 
     .kikiweb {
-      font-size: 20vw; /* Ajustez la taille de la police pour les petits écrans */
+      font-size: 10vw; /* Ajustez la taille de la police pour les petits écrans */
       margin-top: 50px; /* Augmentez la marge supérieure pour éviter le chevauchement du contenu */
       text-align: center;
+      margin-right: 0;
     }
 
   
@@ -372,6 +361,14 @@ footer {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+    }
+
+    .kikiweb {
+      top: calc(75px + 2rem);
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     /* Ajustez la largeur de la modal pour qu'elle occupe toute la largeur de l'écran */
