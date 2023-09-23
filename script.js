@@ -47,9 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
-          disabledClass: isMouseAndTouchDevice ? "swiper-button-disabled" : "",
+        
         },
-        touchEventsTarget: isTouchDevice ? ".swiper-wrapper" : "auto",
         slidesPerView: 1,
       });
     });
@@ -74,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Sélectionner toutes les sections "pres_section"
-const presSections = document.querySelectorAll('.pres_section');
+const presentationSection = document.querySelectorAll('.presentation-section');
 
 // Fonction pour vérifier si une section est visible à l'écran
 function isElementInViewport(el) {
@@ -89,9 +88,14 @@ function isElementInViewport(el) {
 
 // Fonction pour activer l'animation lorsqu'une section devient visible
 function animateOnScroll() {
-    presSections.forEach(section => {
+    presentationSection.forEach(section => {
         if (isElementInViewport(section)) {
-            section.classList.add('active');
+            if (!section.classList.contains('active')) {
+                section.classList.add('active');
+            }
+        } else {
+            // Si la section n'est plus visible, retirer la classe 'active'
+            section.classList.remove('active');
         }
     });
 }
@@ -101,6 +105,7 @@ window.addEventListener('scroll', animateOnScroll);
 
 // Appeler la fonction animateOnScroll au chargement de la page pour vérifier les sections déjà visibles
 animateOnScroll();
+
 
 // Sélectionnez la classe kikiweb
 const kikiweb = document.querySelector('.kikiweb');
